@@ -1,47 +1,119 @@
- Penjelasan Singkat Project
+ **Laporan Singkat Project Sistem Toko Berbasis OOP**
 
-Program ini merupakan simulasi sistem toko sederhana yang menerapkan konsep Object-Oriented Programming (OOP), khususnya inheritance, polymorphism, dan dynamic binding.
+ **1. Deskripsi Umum**
 
- 1. Struktur Kelas
+Program ini merupakan simulasi sistem toko sederhana yang menerapkan konsep **Object-Oriented Programming (OOP)**, khususnya **inheritance**, **polymorphism**, dan **dynamic binding**. Program ini memungkinkan penyimpanan produk, pembelian produk, serta menampilkan transaksi menggunakan konsep kelas dan pewarisan.
 
-Program memiliki tiga tipe produk:
+**2. Struktur Kelas dan Penjelasan**
 
-* Product → kelas induk (parent) yang menyimpan kode, nama, harga.
-* Food → kelas anak dari Product, menambahkan atribut expired.
-* Electronic → kelas anak dari Product, menambahkan atribut garansi.
+ **A. Class Product (Induk)**
 
-Kedua kelas turunan meng-override method DisplayMessage() sehingga outputnya berbeda sesuai jenis produk. Ini merupakan contoh polymorphism.
+ **Fungsi:**
 
-2. Kelas Store (Toko)
+Menjadi kelas dasar untuk semua jenis produk.
 
-* Menyimpan daftar produk menggunakan array pointer.
-* Bisa menambah produk ke toko.
-* Bisa menampilkan semua produk (polymorphism aktif).
-* Bisa mencari produk berdasarkan kode.
+ **Atribut:**
 
-3. Kelas Transaction (Transaksi)
+* `string kode` → kode unik produk
+* `string nama` → nama produk
+* `int harga` → harga produk
 
-* Menampung produk yang dibeli.
-* Menghitung total belanja.
-* Menampilkan detail transaksi.
+ **Method:**
 
-4. Alur Program
+* **Constructor** → menginisialisasi atribut
+* `virtual void DisplayMessage()` → menampilkan info produk (akan di-override oleh class turunan)
 
-1. Program membuat objek toko dan mengisi beberapa produk (makanan dan elektronik).
-2. User melihat daftar produk.
-3. User memasukkan kode produk untuk membeli.
-4. Produk ditambahkan ke transaksi.
-5. User bisa membeli berkali–kali.
-6. Setelah selesai, program menampilkan *detail transaksi dan total harga*.
+**B. Class Food (Turunan dari Product)**
 
-Kesimpulan
+ **Fungsi:**
 
-Project ini adalah aplikasi toko sederhana berbasis OOP yang menunjukkan cara:
+Merepresentasikan produk makanan.
 
-* Membuat inheritance (Food & Electronic dari Product)
-* Menggunakan virtual function untuk polymorphism
-* Mengelola daftar produk di toko
-* Melakukan transaksi pembelian
+ **Atribut Tambahan:**
 
+* `string expired` → tanggal kadaluwarsa
 
+ **Method:**
 
+* **Constructor** → menginisialisasi atribut induk + expired
+* `void DisplayMessage() override` → menampilkan info produk makanan (polymorphism)
+
+ **C. Class Electronic (Turunan dari Product)**
+
+**Fungsi:**
+
+Merepresentasikan produk elektronik.
+
+**Atribut Tambahan:**
+
+* `int garansi` → lama garansi (bulan)
+
+**Method:**
+
+* **Constructor** → menginisialisasi atribut induk + garansi
+* `void DisplayMessage() override` → menampilkan info produk elektronik (polymorphism)
+
+**D. Class Store (Toko)**
+
+**Fungsi:**
+
+Menyimpan daftar produk dan menyediakan fitur pencarian.
+
+**Atribut:**
+
+* `Product* list[100]` → array pointer produk
+* `int jumlah` → jumlah produk yang tersimpan
+
+**Method:**
+
+* `void AddProduct(Product* p)` → menambahkan produk ke toko
+* `void ShowAll()` → menampilkan semua produk (menggunakan polymorphism)
+* `Product* FindByKode(string k)` → mencari produk berdasarkan kode
+
+**E. Class Transaction (Transaksi)**
+
+**Fungsi:**
+
+Menyimpan produk yang dibeli dan menghitung total harga.
+
+**Atribut:**
+
+* `Product* beli[100]` → daftar produk yang dibeli
+* `int jumlah` → jumlah item yang dibeli
+
+**Method:**
+
+* `void AddItem(Product* p)` → menambahkan produk ke transaksi
+* `void ShowTransaction()` → menampilkan detail pembelian
+* `int GetTotal()` → menghitung total harga
+
+**3. Alur Program**
+
+1. Program membuat objek toko (`Store`) dan mengisi beberapa produk:
+
+   * Produk makanan (`Food`)
+   * Produk elektronik (`Electronic`)
+
+2. User melihat semua produk yang tersedia (polymorphism aktif saat `DisplayMessage()` dipanggil).
+
+3. User memasukkan kode produk untuk membeli barang.
+
+4. Produk ditambahkan ke objek `Transaction`.
+
+5. User dapat membeli lebih dari satu produk.
+
+6. Setelah selesai, program menampilkan:
+
+   * Daftar produk yang dibeli
+   * Total harga
+
+ 4. Kesimpulan
+
+Project ini merupakan aplikasi toko sederhana berbasis OOP yang menunjukkan cara:
+
+* Menerapkan **inheritance** pada class Food dan Electronic yang berasal dari Product
+* Menggunakan **virtual function** untuk **polymorphism dan dynamic binding**
+* Mengelola daftar produk pada toko menggunakan array pointer
+* Melakukan transaksi pembelian dengan menampung produk ke dalam class Transaction
+
+Kalau mau, saya juga bisa **buatkan diagram class** atau **versi Word/PDF** untuk laporan.
