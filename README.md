@@ -1,4 +1,4 @@
- **Laporan Singkat Project Sistem Toko Berbasis OOP**
+ **SISTEM MANAJEMEN PENJUALAN SEDERHANA MENGGUNAKAN KONSEP OOP**
 
  **1. Deskripsi Umum**
 
