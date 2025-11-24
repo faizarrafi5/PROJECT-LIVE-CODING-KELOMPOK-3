@@ -36,15 +36,12 @@ Kedua kelas turunan meng-override method DisplayMessage() sehingga outputnya ber
 
 Kesimpulan
 
-Project ini adalah *aplikasi toko sederhana berbasis OOP* yang menunjukkan cara:
+Project ini adalah aplikasi toko sederhana berbasis OOP yang menunjukkan cara:
 
 * Membuat inheritance (Food & Electronic dari Product)
 * Menggunakan virtual function untuk polymorphism
 * Mengelola daftar produk di toko
 * Melakukan transaksi pembelian
 
-Sangat cocok sebagai contoh implementasi konsep OOP lengkap dalam C++.
 
----
 
-Jika ingin dibuatkan *diagram, rangkuman, flowchart, atau penjelasan lebih singkat*, tinggal bilang saja!
